@@ -32,14 +32,14 @@ async def upload_csv(file: UploadFile = File(...)):
         else:
             raise HTTPException(status_code=400, detail="File name not recognized")
 
-        # Comprobar si los ids ya existen en la base de datos
+        # Check if the ids already exist in the database
         if table_name == "departments":
-            # Extraer los ids que vienen en el CSV
+            # Extract the ids that come in the CSV
             department_ids = df['id'].tolist()
             with engine.connect() as connection:
-                # Recuperar los ids existentes en la tabla departments
+                # Retrieve existing IDs from the Departments table
                 existing_ids = [row[0] for row in connection.execute(text("SELECT id FROM departments")).fetchall()]
-                # Filtrar los datos que no están duplicados
+                # Filter out data that is not duplicated
                 df = df[~df['id'].isin(existing_ids)]
 
         df.to_sql(table_name, engine, if_exists="replace", index=False)
@@ -106,7 +106,7 @@ def above_average_hires():
         with engine.connect() as conn:
             result = conn.execute(query)
             data = [dict(row._mapping) for row in result]
-            print(data)  # Imprimir los resultados para depurar
+            print(data)  
             return JSONResponse(content=data)
     except SQLAlchemyError as e:
         raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
