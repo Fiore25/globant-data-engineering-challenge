@@ -24,15 +24,17 @@ Supports dynamic CSV imports to populate the relevant tables.
 
 # Prerequisites
 Python 3.10 or higher
+
 Docker (optional, but recommended for containerization)
+
 Git (to clone the repository)
 
 # Installation
-`git clone https://github.com/your-username/globant-data-engineering-challenge.git`
-`cd globant-data-engineering-challenge`
-`python -m venv venv`
-`venv\Scripts\activate`
-`pip install -r requirements.txt`
+git clone https://github.com/your-username/globant-data-engineering-challenge.git
+cd globant-data-engineering-challenge
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
 
 # Running the Application locally
 `uvicorn app.main:app --reload`
@@ -41,8 +43,8 @@ Git (to clone the repository)
 `pytest -v tests/test_main.py`
 
 # Running the Application with Docker
-`docker build -t globant-data-engineering-challenge .`
-`docker run -d -p 8000:8000 globant-data-engineering-challenge`
+docker build -t globant-data-engineering-challenge .
+docker run -d -p 8000:8000 globant-data-engineering-challenge
 
 # Deployment
 The application is deployed on Vercel and can be accessed at the following URL:
