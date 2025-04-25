@@ -1,36 +1,32 @@
 # globant-data-engineering-challenge
 Coding challenge for a Data Engineering position at Globant – REST API + SQL analysis.
 
-# Description
+## Description
 This project is a solution to the Globant Data Engineering Challenge. The goal of this application is to create an API for managing employee data, importing CSV files into a database, generating reports based on specific queries, and providing batch insertion functionality for hired employees.
+
 The API is built using FastAPI, and the database is handled with SQLAlchemy. The project also includes Docker containerization and automated testing to ensure the robustness of the application.
 
-# Features
-# API Endpoints:
-/: A simple endpoint that returns a welcome message.
+## Features
 
-/upload-csv/: Allows uploading CSV files containing employee, department, or job data.
+### API Endpoints:
+- `/`: A simple endpoint that returns a welcome message.
+- `/upload-csv/`: Allows uploading CSV files containing employee, department, or job data.
+- `/report/hires-per-quarter/`: Returns a report of hires per department for each quarter in the year 2021.
+- `/report/above-average-hires/`: Provides a list of departments that have more hires than the average for the year 2021.
+- `/batch-insert-employees/`: Allows batch insertion of employee records (up to 1000 at once).
 
-/report/hires-per-quarter/: Returns a report of hires per department for each quarter in the year 2021.
+## Database:
+- Uses SQLite to store employee, department, and job information.
+- Supports dynamic CSV imports to populate the relevant tables.
 
-/report/above-average-hires/: Provides a list of departments that have more hires than the average for the year 2021.
+## Prerequisites
+- Python 3.10 or higher  
+- Docker (optional, but recommended for containerization)  
+- Git (to clone the repository)
 
-/batch-insert-employees/: Allows batch insertion of employee records (up to 1000 at once).
-
-# Database:
-Uses SQLite to store employee, department, and job information.
-
-Supports dynamic CSV imports to populate the relevant tables.
-
-# Prerequisites
-Python 3.10 or higher
-
-Docker (optional, but recommended for containerization)
-
-Git (to clone the repository)
-
-# Installation
-git clone https://github.com/your-username/globant-data-engineering-challenge.git
+## Installation
+```bash
+git clone https://github.com/Fiore25/globant-data-engineering-challenge.git
 cd globant-data-engineering-challenge
 python -m venv venv
 venv\Scripts\activate
